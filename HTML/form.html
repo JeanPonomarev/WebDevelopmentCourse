@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Immigration Submit Form</title>
+</head>
+<body>
+
+<h1>Send us information about yourself</h1>
+
+<form>
+    <label>
+        First name: <br><input required type="text" name="firstName"><br>
+    </label>
+
+    <label>
+        Last name: <br><input required type="text" name="lastName"><br>
+    </label>
+
+    <label>
+        Email: <br><input required type="email" name="email"><br>
+    </label>
+
+    <label>
+        Country: <br><input required type="text" name="country"><br>
+    </label>
+
+    <label>
+        Gender: <br>
+        <input checked required type="radio" value="male" name="gender"> Male <br>
+        <input type="radio" value="female" name="gender"> Female <br>
+        <input type="radio" value="other" name="gender"> Other <br>
+    </label>
+
+    <label>
+        Birthday: <br>
+        <input type="date" name="birthday"> <br>
+    </label>
+
+    <label>
+        Education level completed: <br>
+        <select>
+            <option value="university">University</option>
+            <option value="college">College</option>
+            <option value="highSchool">High School</option>
+            <option value="none">None</option>
+        </select>
+    </label>
+
+    <br>
+
+    Check all that apply: <br>
+    <label>
+        <input type="checkbox" name="property1" value="englishLevel"> I have upper-intermediate English level <br>
+    </label>
+    <label>
+        <input type="checkbox" name="property2" value="driverLicence"> I have driver's licence <br>
+    </label>
+    <label>
+        <input type="checkbox" name="property3" value="married"> I'm married <br>
+    </label>
+    <label>
+        <input type="checkbox" name="property4" value="work"> I have full time work <br>
+    </label>
+
+    <label>
+        Hobbies: <br>
+        <select multiple>
+            <option value="sport">Sport</option>
+            <option value="videoGames">Video games</option>
+            <option value="music">Music</option>
+            <option value="art">Painting</option>
+            <option value="literature">Literature</option>
+            <option value="dance">Dance</option>
+        </select>
+    </label>
+
+    <br>
+
+    <label>
+        Your photo: <br>
+        <input type="file" name="photo">
+    </label>
+
+    <br><br>
+
+    <label>
+        Why do you want to immigrate: <br>
+        <textarea name="immigrationReason" rows="5" cols="50"></textarea>
+    </label>
+
+    <br><br>
+
+    <input type="submit">
+    <input type="reset">
+</form>
+
+<br>
+
+<p><a href="houston.html">Article about Houston</a></p>
+
+</body>
+</html>
