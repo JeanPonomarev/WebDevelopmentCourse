@@ -2,6 +2,10 @@
     box-sizing: border-box;
 }
 
+body {
+    font-family: sans-serif;
+}
+
 .main_container {
     padding: 5px 10px 0;
     background-color: #feeed6;
@@ -11,7 +15,6 @@
 }
 
 .header.main {
-    font-family: sans-serif;
     font-size: 29px;
     line-height: 30px;
     margin-bottom: 17px;
@@ -21,7 +24,6 @@
 }
 
 .subheading {
-    font-family: sans-serif;
     font-size: 17px;
     line-height: 10px;
     margin-bottom: 18px;
@@ -43,7 +45,6 @@
 }
 
 .info {
-    font-family: sans-serif;
     font-size: 15px;
     line-height: 22px;
     margin-bottom: 10px;
