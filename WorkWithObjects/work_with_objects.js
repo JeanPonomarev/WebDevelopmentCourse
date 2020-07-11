@@ -1,5 +1,49 @@
 (function () {
-    var countiesArray = [
+    function getCountriesWithMaxCitiesCount(countriesArray) {
+        checkArray(countriesArray);
+
+        var maxCitiesCount = countriesArray
+            .map(function (country) {
+                return country.cities.length;
+            })
+            .reduce(function (nextCitiesCount, currentCitiesCount) {
+                return (nextCitiesCount > currentCitiesCount ? nextCitiesCount : currentCitiesCount);
+            });
+
+        return countriesArray.filter(function (country) {
+            return country.cities.length === maxCitiesCount;
+        });
+    }
+
+    function getCountryInfo(countriesArray) {
+        checkArray(countriesArray);
+
+        var countriesInfo = {};
+
+        countriesArray.forEach(function (country) {
+            countriesInfo[country.name] = country.cities.reduce(function (total, city) {
+                return total + city.population;
+            }, 0);
+        })
+
+        return countriesInfo;
+    }
+
+    function checkArray(array) {
+        if (typeof array === "undefined") {
+            throw new Error("Input array is undefined");
+        }
+
+        if (!array) {
+            throw new Error("Input array is null");
+        }
+
+        if (array.length === 0) {
+            throw new Error("Input array is empty");
+        }
+    }
+
+    var countriesArray = [
         {
             name: "Russia",
             cities: [
@@ -62,59 +106,9 @@
     ]
 
     console.log("Countries with max cities count:")
-    console.log(getCountriesWithMaxCitiesCount(countiesArray));
+    console.log(getCountriesWithMaxCitiesCount(countriesArray));
     console.log();
 
     console.log("Countries info:")
-    console.log(getCountryInfo(countiesArray));
-
-    function getCountriesWithMaxCitiesCount(countriesArray) {
-        var resultArray = [
-            {
-                name: "",
-                cities: []
-            }
-        ];
-
-        var wasInserted = false;
-
-        try {
-            countriesArray.forEach(function (country) {
-                if (country.cities.length > resultArray[0].cities.length) {
-                    resultArray = [];
-                    resultArray.push(country);
-                    wasInserted = true;
-                } else if (country.cities.length === resultArray[0].cities.length) {
-                    resultArray.push(country);
-                }
-            });
-        } catch (e) {
-            return null;
-        }
-
-        if (!wasInserted) {
-            return null;
-        }
-
-        return resultArray;
-    }
-
-    function getCountryInfo(countriesArray) {
-        var resultArray = [];
-
-        try {
-            resultArray = countriesArray.map(function (country) {
-                var nextCountry = {};
-                nextCountry[country.name] = country.cities.reduce(function (total, city) {
-                    return total + city.population;
-                }, 0);
-
-                return nextCountry;
-            });
-        } catch (e) {
-            return null;
-        }
-
-        return resultArray;
-    }
+    console.log(getCountryInfo(countriesArray));
 })();
