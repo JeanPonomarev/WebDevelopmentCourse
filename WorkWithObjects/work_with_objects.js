@@ -15,7 +15,7 @@
         });
     }
 
-    function getCountryInfo(countriesArray) {
+    function getCountriesInfo(countriesArray) {
         checkArray(countriesArray);
 
         var countriesInfo = {};
@@ -110,5 +110,5 @@
     console.log();
 
     console.log("Countries info:")
-    console.log(getCountryInfo(countriesArray));
+    console.log(getCountriesInfo(countriesArray));
 })();
