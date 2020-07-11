@@ -8,42 +8,36 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+<div class="container">
+    <div class="header">Отправить заявку</div>
 
-<div class="header">Отправить заявку</div>
+    <div class="form_container">
+        <form>
+            <label class="form_label">
+                Ваше имя
+                <input class="input" required type="text" placeholder="Ваше имя *" name="first_name">
+            </label>
 
-<div class="form_container">
+            <label class="form_label">
+                Ваш номер телефона
+                <input class="input" required type="text" placeholder="Ваш номер телефона *" name="phone_number">
+            </label>
 
-    <form>
-        <label class="form_label">
-            Ваше имя <br>
-            <input class="input" required type="text" placeholder="Ваше имя *" name="first_name">
-            <br>
-        </label>
+            <label class="form_label">
+                Ваш email или VK
+                <input class="input" required type="text" placeholder="Ваш email или VK *" name="">
+            </label>
 
-        <label class="form_label">
-            Ваш номер телефона <br>
-            <input class="input" required type="text" placeholder="Ваш номер телефона *" name="phone_number">
-            <br>
-        </label>
+            <label class="form_label">
+                Комментарий
+                <textarea class="input" name="comment" placeholder="Комментарий (не обязательно)" rows="5" cols="50"></textarea>
+            </label>
 
-        <label class="form_label">
-            Ваш email или VK <br>
-            <input class="input" required type="text" placeholder="Ваш email или VK *" name="">
-            <br>
-        </label>
+            <p class="instruction">Заполните и отправьте форму, и мы перезвоним Вам по указанному номеру</p>
 
-        <label class="form_label">
-            Комментарий <br>
-            <textarea class="input" name="comment" placeholder="Комментарий (не обязательно)" rows="5" cols="50"></textarea>
-            <br>
-        </label>
-
-        <p class="instruction">Заполните и отправьте форму, и мы перезваним Вам по указанному номеру</p>
-
-        <input class="submit" type="submit" value="Отправить заявку">
-    </form>
-
+            <input class="submit" type="submit" value="Отправить заявку">
+        </form>
+    </div>
 </div>
-
 </body>
 </html>

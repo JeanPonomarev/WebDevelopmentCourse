@@ -2,6 +2,15 @@
     box-sizing: border-box;
 }
 
+.container {
+    max-width: 736px;
+}
+
+.form_container {
+    background-color: #feeed6;
+    padding: 15px 18px 12px;
+}
+
 .header {
     margin-top: 15px;
     margin-left: 8px;
@@ -30,7 +39,15 @@
     border: none;
 
     font-size: 15px;
+    font-family: sans-serif;
+}
+
+.input::placeholder {
     color: #a8abae;
+}
+
+textarea.input {
+    height: 115px;
 }
 
 .instruction {
@@ -48,7 +65,7 @@
     font-size: 14px;
     font-weight: 600;
 
-    border: 0.5px solid gray;
+    border: 0;
 
     background-color: #368eb3;
     color: #f9ffff;
@@ -57,12 +74,6 @@
     margin-top: 15px;
 }
 
-textarea.input {
-    height: 115px;
-}
-
-.form_container {
-    background-color: #feeed6;
-    max-width: 736px;
-    padding: 15px 18px 12px;
+.submit:hover {
+    background-color: #32728d;
 }
