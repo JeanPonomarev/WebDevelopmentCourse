@@ -1,14 +1,21 @@
 (function () {
+    function checkArray(array) {
+        if (array === undefined) {
+            throw new Error("Input array is undefined");
+        }
+
+        if (!array) {
+            throw new Error("Input array is null");
+        }
+    }
+
     function getCountriesWithMaxCitiesCount(countriesArray) {
         checkArray(countriesArray);
 
         var maxCitiesCount = countriesArray
-            .map(function (country) {
-                return country.cities.length;
-            })
-            .reduce(function (nextCitiesCount, currentCitiesCount) {
-                return (nextCitiesCount > currentCitiesCount ? nextCitiesCount : currentCitiesCount);
-            });
+            .reduce(function (currentMaxCitiesCount, country) {
+                return Math.max(currentMaxCitiesCount, country.cities.length);
+            }, 0);
 
         return countriesArray.filter(function (country) {
             return country.cities.length === maxCitiesCount;
@@ -27,20 +34,6 @@
         })
 
         return countriesInfo;
-    }
-
-    function checkArray(array) {
-        if (typeof array === "undefined") {
-            throw new Error("Input array is undefined");
-        }
-
-        if (!array) {
-            throw new Error("Input array is null");
-        }
-
-        if (array.length === 0) {
-            throw new Error("Input array is empty");
-        }
     }
 
     var countriesArray = [
