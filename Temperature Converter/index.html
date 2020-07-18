@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Temperature Converter</title>
+
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div class="container">
+    <table id="temperature_table">
+        <tbody>
+        <tr>
+            <td>
+                <label for="celsius">Celsius:</label>
+            </td>
+            <td>
+                <input type="text" id="celsius">
+            </td>
+            <td>°C</td>
+        </tr>
+
+        <tr>
+            <td>
+                <label>Fahrenheit:</label>
+            </td>
+            <td>
+                <input type="text" id="fahrenheit" disabled>
+            </td>
+            <td>°F</td>
+        </tr>
+
+        <tr>
+            <td>
+                <label>Kelvin:</label>
+            </td>
+            <td>
+                <input type="text" id="kelvin" disabled>
+            </td>
+            <td>°K</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <button type="button" id="convert_button">Convert</button>
+    <button type="button" id="reset_button">Reset</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
