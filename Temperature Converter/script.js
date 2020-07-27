@@ -1,27 +1,27 @@
 document.addEventListener("DOMContentLoaded", function () {
     function checkInputValue(celsiusInputValue) {
         if (isNaN(celsiusInputValue)) {
-            insertErrorMessage("not a number")
+            insertErrorMessage("not a number");
             return false;
         }
 
         if (celsiusInputValue === "") {
-            insertErrorMessage("empty input field")
+            insertErrorMessage("empty input field");
             return false;
         }
 
         if (/\s/.test(celsiusInputValue)) {
-            insertErrorMessage("white spaces")
-            return false
+            insertErrorMessage("white spaces");
+            return false;
         }
 
         if (celsiusInputValue < -273.15) {
-            insertErrorMessage("too cold")
+            insertErrorMessage("too cold");
             return false;
         }
 
         if (celsiusInputValue > 15000000000) {
-            insertErrorMessage("too hot")
+            insertErrorMessage("too hot");
             return false;
         }
 
@@ -29,16 +29,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function insertErrorMessage(message) {
-        var row = table.insertRow(1);
+        var error_message_row = document.createElement("div");
 
-        row.id = "error_message_row";
+        error_message_row.classList.add("temperature_row");
+        error_message_row.classList.add("error");
 
-        row.insertCell(0);
-        var cell2 = row.insertCell(1);
-        row.insertCell(2);
+        error_message_row.innerHTML = "Error: " + message;
 
-        cell2.id = "error_message";
-        cell2.innerHTML = "Error: " + message;
+        calculation_block.insertBefore(error_message_row, document.querySelector(".temperature_row:nth-child(2)"));
     }
 
     function convertCelsiusToFahrenheit(celsius) {
@@ -47,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function convertCelsiusToKelvin(celsius) {
-        var result = Number(celsius) + 273.15
+        var result = Number(celsius) + 273.15;
         return Math.round(result * 100) / 100;
     }
 
@@ -58,11 +56,11 @@ document.addEventListener("DOMContentLoaded", function () {
     var convertButton = document.getElementById("convert_button");
     var resetButton = document.getElementById("reset_button");
 
-    var table = document.getElementById("temperature_table");
+    var calculation_block = document.getElementById("temperature_calculation_block");
 
     convertButton.addEventListener("click", function () {
-        if (document.getElementById("error_message_row")) {
-            table.deleteRow(1);
+        if (document.querySelector(".temperature_row.error")) {
+            calculation_block.removeChild(document.querySelector(".temperature_row.error"));
         }
 
         var celsiusInputValue = celsiusInputField.value;
@@ -76,8 +74,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     resetButton.addEventListener("click", function () {
-        if (document.getElementById("error_message_row")) {
-            table.deleteRow(1);
+        if (document.querySelector(".temperature_row.error")) {
+            calculation_block.removeChild(document.querySelector(".temperature_row.error"));
         }
 
         celsiusInputField.value = null;

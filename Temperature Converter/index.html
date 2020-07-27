@@ -8,40 +8,33 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-<div class="container">
-    <table id="temperature_table">
-        <tbody>
-        <tr>
-            <td>
+<div class="temperature_converter_container">
+    <div id="temperature_calculation_block">
+        <div class="temperature_row">
+            <div>
                 <label for="celsius">Celsius:</label>
-            </td>
-            <td>
-                <input type="text" id="celsius">
-            </td>
-            <td>°C</td>
-        </tr>
+            </div>
+            <input type="text" id="celsius" class="celsius_input">
+            <div>°C</div>
+        </div>
 
-        <tr>
-            <td>
+        <div class="temperature_row" id="fah">
+            <div>
                 <label>Fahrenheit:</label>
-            </td>
-            <td>
-                <input type="text" id="fahrenheit" disabled>
-            </td>
-            <td>°F</td>
-        </tr>
+            </div>
+            <input type="text" id="fahrenheit" disabled>
+            <div>°F</div>
+        </div>
 
-        <tr>
-            <td>
+        <div class="temperature_row">
+            <div>
                 <label>Kelvin:</label>
-            </td>
-            <td>
-                <input type="text" id="kelvin" disabled>
-            </td>
-            <td>°K</td>
-        </tr>
-        </tbody>
-    </table>
+            </div>
+            <input type="text" id="kelvin" class="kelvin_input" disabled>
+            <div>°K</div>
+        </div>
+
+    </div>
 
     <button type="button" id="convert_button">Convert</button>
     <button type="button" id="reset_button">Reset</button>
