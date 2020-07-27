@@ -1,0 +1,118 @@
+* {
+    box-sizing: border-box;
+}
+
+.todo_list_container {
+    max-width: 600px;
+    min-width: 250px;
+
+    margin: 10px;
+    padding: 10px;
+
+    background: #b3d4fc;
+
+    border-radius: 10px;
+}
+
+.header_container {
+    min-height: 115px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: cornflowerblue;
+}
+
+.header {
+    background-color: white;
+    padding: 10px 20px;
+    color: black;
+    text-align: center;
+    margin-bottom: 10px;
+    font-family: sans-serif;
+    font-size: 18px;
+    border-radius: 10px;
+}
+
+#todo_input_text {
+    margin: 5px 5px 5px 0;
+    border: none;
+    border-radius: 10px;
+    width: 83%;
+    min-height: 40px;
+    padding: 10px;
+    float: left;
+    font-family: sans-serif;
+    font-size: 18px;
+}
+
+#add_todo_button {
+    margin: 5px 0;
+    padding: 10px;
+    width: 15%;
+    height: 40px;
+    background: white;
+    color: black;
+    float: right;
+    text-align: center;
+    cursor: pointer;
+    border: 0;
+    border-radius: 10px;
+}
+
+.todo_list_container ul li {
+    display: flex;
+    flex-direction: row;
+
+    margin: 5px 0;
+    padding: 5px 5px 5px 10px;
+    list-style-type: none;
+    background-color: cornflowerblue;
+
+    border-radius: 10px;
+
+    font-family: sans-serif;
+    font-size: 18px;
+}
+
+.list_item_text, .list_item_input_text {
+    width: 82%;
+    min-height: 40px;
+
+    margin: 5px 5px 5px 0;
+    padding: 12px 10px 8px 10px;
+
+    background: white;
+
+    border: none;
+    border-radius: 10px;
+
+    font-family: sans-serif;
+    font-size: 18px;
+
+    overflow-wrap: break-word;
+}
+
+.todo_list_container ul button {
+    width: 40px;
+    height: 40px;
+
+    margin-top: 5px;
+    margin-left: 5px;
+
+    border: 0;
+    border-radius: 5px;
+
+    background-color: white;
+}
+
+.delete_button, .cancel_button {
+    margin: 5px 5px 0 5px;
+}
+
+/* не получается сделать hover для кнопки с id и остальных одновременно. Буду рад, если подскажете, в чём дело */
+#add_todo_button:hover {
+    background-color: #bbb;
+}
+
+.todo_list_container button:hover {
+    background-color: #bbb;
+}

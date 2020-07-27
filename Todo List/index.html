@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo List</title>
+
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<div class="todo_list_container">
+    <div class="header_container">
+        <h1 class="header">Todo List</h1>
+
+        <form>
+            <label>
+                <input type="text" id="todo_input_text" placeholder="Write your note here...">
+            </label>
+
+            <button type="button" id="add_todo_button"><i class="fa fa-check" aria-hidden="true"></i></button>
+        </form>
+    </div>
+
+    <ul id="todo_list"></ul>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
