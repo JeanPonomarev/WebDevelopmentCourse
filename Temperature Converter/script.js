@@ -29,14 +29,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function insertErrorMessage(message) {
-        var error_message_row = document.createElement("div");
+        var errorMessageRow = document.createElement("div");
+        errorMessageRow.classList.add("temperature_row", "error");
+        errorMessageRow.innerHTML = "Error: " + message;
 
-        error_message_row.classList.add("temperature_row");
-        error_message_row.classList.add("error");
-
-        error_message_row.innerHTML = "Error: " + message;
-
-        calculation_block.insertBefore(error_message_row, document.querySelector(".temperature_row:nth-child(2)"));
+        calculationBlock.insertBefore(errorMessageRow, document.querySelector(".temperature_row:nth-child(2)"));
     }
 
     function convertCelsiusToFahrenheit(celsius) {
@@ -56,11 +53,13 @@ document.addEventListener("DOMContentLoaded", function () {
     var convertButton = document.getElementById("convert_button");
     var resetButton = document.getElementById("reset_button");
 
-    var calculation_block = document.getElementById("temperature_calculation_block");
+    var calculationBlock = document.getElementById("temperature_calculation_block");
 
     convertButton.addEventListener("click", function () {
-        if (document.querySelector(".temperature_row.error")) {
-            calculation_block.removeChild(document.querySelector(".temperature_row.error"));
+        var errorSign = document.querySelector(".temperature_row.error");
+
+        if (errorSign) {
+            calculationBlock.removeChild(errorSign);
         }
 
         var celsiusInputValue = celsiusInputField.value;
@@ -74,8 +73,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     resetButton.addEventListener("click", function () {
-        if (document.querySelector(".temperature_row.error")) {
-            calculation_block.removeChild(document.querySelector(".temperature_row.error"));
+        var errorSign = document.querySelector(".temperature_row.error");
+
+        if (errorSign) {
+            calculationBlock.removeChild(errorSign);
         }
 
         celsiusInputField.value = null;
