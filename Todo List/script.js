@@ -1,4 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
+    function insertHtmlAfterEditOperation(todoItem, currentEditBlock, currentDeleteBlock) {
+        todoItem.innerHTML = "<div class='list_item_text'></div>";
+        todoItem.appendChild(currentEditBlock);
+        todoItem.appendChild(currentDeleteBlock);
+    }
 
     var addTodoButton = document.getElementById("add_todo_button");
     var todoInputText = document.getElementById("todo_input_text");
@@ -30,41 +35,33 @@ document.addEventListener("DOMContentLoaded", function () {
         todoList.appendChild(todoItem);
 
         todoInputText.value = null;
-    });
 
-    todoList.addEventListener("click", function (event) {
-        var clickedButtonOrItem = event.target;
-        var currentListItem
+        var currentDeleteBlock = todoItem.querySelector(".delete_button, .fa-trash");
 
-        if (clickedButtonOrItem.tagName === "BUTTON") {
-            currentListItem = clickedButtonOrItem.parentNode;
-        } else if (clickedButtonOrItem.tagName === "I") {
-            currentListItem = clickedButtonOrItem.parentNode.parentNode;
-        } else {
-            throw Error("Unknown element was added into HTML document");
-        }
+        currentDeleteBlock.addEventListener("click", function () {
+            todoItem.remove();
+        })
 
-        if (clickedButtonOrItem.className === "delete_button" || clickedButtonOrItem.className === "fa fa-trash") {
-            todoList.removeChild(currentListItem);
-            //currentListItem.remove();
-        }
+        var currentEditBlock = todoItem.querySelector(".edit_button, .fa-pencil-square-o");
 
-        if (clickedButtonOrItem.className === "edit_button" || clickedButtonOrItem.className === "fa fa-pencil-square-o") {
-            initialText = currentListItem.querySelector(".list_item_text").innerHTML;
-            currentListItem.innerHTML = editListItemHtml;
-            currentListItem.querySelector(".list_item_input_text").value = initialText;
-            currentListItem.querySelector(".list_item_input_text").style.color = "#228B22";
-        }
+        currentEditBlock.addEventListener("click", function () {
+            initialText = todoItem.querySelector(".list_item_text").innerHTML;
+            todoItem.innerHTML = editListItemHtml;
+            todoItem.querySelector(".list_item_input_text").value = initialText;
+            todoItem.querySelector(".list_item_input_text").style.color = "#228B22";
 
-        if (clickedButtonOrItem.className === "save_button" || clickedButtonOrItem.className === "fa fa-floppy-o") {
-            var currentText = currentListItem.querySelector(".list_item_input_text").value;
-            currentListItem.innerHTML = listItemHtml;
-            currentListItem.querySelector(".list_item_text").innerHTML = currentText;
-        }
+            var currentSaveBlock = todoItem.querySelector(".save_button, .fa-floppy-o");
+            currentSaveBlock.addEventListener("click", function () {
+                var currentText = todoItem.querySelector(".list_item_input_text").value;
+                insertHtmlAfterEditOperation(todoItem, currentEditBlock, currentDeleteBlock)
+                todoItem.querySelector(".list_item_text").innerHTML = currentText;
+            })
 
-        if (clickedButtonOrItem.className === "cancel_button" || clickedButtonOrItem.className === "fa fa-arrow-up") {
-            currentListItem.innerHTML = listItemHtml;
-            currentListItem.querySelector(".list_item_text").innerHTML = initialText;
-        }
+            var currentResetBlock = todoItem.querySelector(".cancel_button, .fa-arrow-up")
+            currentResetBlock.addEventListener("click", function () {
+                insertHtmlAfterEditOperation(todoItem, currentEditBlock, currentDeleteBlock)
+                todoItem.querySelector(".list_item_text").innerHTML = initialText;
+            })
+        });
     });
 });
