@@ -18,13 +18,13 @@
     min-height: 115px;
     padding: 10px;
     border-radius: 10px;
-    background-color: cornflowerblue;
+    background-color: #6495ed;
 }
 
 .header {
-    background-color: white;
+    background-color: #fff;
     padding: 10px 20px;
-    color: black;
+    color: #000;
     text-align: center;
     margin-bottom: 10px;
     font-family: sans-serif;
@@ -32,7 +32,7 @@
     border-radius: 10px;
 }
 
-#todo_input_text {
+.todo_input_text {
     margin: 5px 5px 5px 0;
     border: none;
     border-radius: 10px;
@@ -44,13 +44,13 @@
     font-size: 18px;
 }
 
-#add_todo_button {
+.add_todo_button {
     margin: 5px 0;
     padding: 10px;
     width: 15%;
     height: 40px;
-    background: white;
-    color: black;
+    background: #fff;
+    color: #000;
     float: right;
     text-align: center;
     cursor: pointer;
@@ -65,7 +65,7 @@
     margin: 5px 0;
     padding: 5px 5px 5px 10px;
     list-style-type: none;
-    background-color: cornflowerblue;
+    background-color: #6495ed;
 
     border-radius: 10px;
 
@@ -80,7 +80,7 @@
     margin: 5px 5px 5px 0;
     padding: 12px 10px 8px 10px;
 
-    background: white;
+    background: #fff;
 
     border: none;
     border-radius: 10px;
@@ -89,6 +89,10 @@
     font-size: 18px;
 
     overflow-wrap: break-word;
+}
+
+.changed_text {
+    color: #228B22;
 }
 
 .todo_list_container ul button {
@@ -101,16 +105,11 @@
     border: 0;
     border-radius: 5px;
 
-    background-color: white;
+    background-color: #fff;
 }
 
 .delete_button, .cancel_button {
     margin: 5px 5px 0 5px;
-}
-
-/* не получается сделать hover для кнопки с id и остальных одновременно. Буду рад, если подскажете, в чём дело */
-#add_todo_button:hover {
-    background-color: #bbb;
 }
 
 .todo_list_container button:hover {
