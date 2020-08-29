@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Phone Book</title>
+
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div class="main-container d-flex flex-column">
+    <h1 class="text-center">Phone Book</h1>
+
+    <form class="align-content-center input-form">
+        <div class="form-group">
+            <label for="input-name">Name</label>
+            <input type="text" class="form-control" id="input-name" placeholder="Enter your name">
+        </div>
+
+        <div class="form-group">
+            <label for="input-surname">Surname</label>
+            <input type="text" class="form-control" id="input-surname" aria-describedby="emailHelp"
+                   placeholder="Enter your surname">
+        </div>
+
+        <div class="form-group">
+            <label for="input-phone">Phone number</label>
+            <input type="text" class="form-control" id="input-phone" placeholder="Enter your phone number">
+        </div>
+
+        <button type="button" class="btn btn-success add">Add contact</button>
+    </form>
+
+
+    <table class="table w-50 table-hover">
+        <thead>
+        <tr>
+            <th scope="col">№</th>
+            <th scope="col">Surname</th>
+            <th scope="col">Name</th>
+            <th scope="col">Phone number</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>Ivanov</td>
+            <td>Ivan</td>
+            <td>8-913-342-4523</td>
+            <td>
+                <button class="btn btn-danger delete"><i class="fa fa-times"></i></button>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>Petrov</td>
+            <td>Petr</td>
+            <td>8-913-312-8634</td>
+            <td>
+                <button class="btn btn-danger delete"><i class="fa fa-times"></i></button>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>Petrov</td>
+            <td>Petr</td>
+            <td>8-913-312-8634</td>
+            <td>
+                <button class="btn btn-danger delete"><i class="fa fa-times"></i></button>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>Petrov</td>
+            <td>Petr</td>
+            <td>8-913-312-8634</td>
+            <td>
+                <button class="btn btn-danger delete"><i class="fa fa-times"></i></button>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>Petrov</td>
+            <td>Petr</td>
+            <td>8-913-312-8634</td>
+            <td>
+                <button class="btn btn-danger delete"><i class="fa fa-times"></i></button>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>Petrov</td>
+            <td>Petr</td>
+            <td>8-913-312-8634</td>
+            <td>
+                <button class="btn btn-danger delete"><i class="fa fa-times"></i></button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
