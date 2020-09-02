@@ -10,12 +10,12 @@ document.addEventListener("DOMContentLoaded", function () {
     var todoList = document.getElementById("todo_list");
 
     var listItemHtml = "<div class='list_item_text'></div>" +
-        "<button type='button' class='edit_button' title='edit note'><i class=\"fa fa-pencil-square-o\" aria-hidden=\"true\"></i></button>" +
-        "<button type='button' class='delete_button' title='delete note'><i class=\"fa fa-trash\"></i></button>";
+        "<button type='button' class='edit_button' title='Edit note'><i class=\"fa fa-pencil-square-o\" aria-hidden=\"true\"></i></button>" +
+        "<button type='button' class='delete_button' title='Delete note'><i class=\"fa fa-trash\"></i></button>";
 
     var editListItemHtml = "<input type='text' class='list_item_input_text'>" +
-        "<button type='button' class='save_button' title='save changes'><i class=\"fa fa-floppy-o\" aria-hidden=\"true\"></i></button>" +
-        "<button type='button' class='cancel_button' title='cancel changes'><i class=\"fa fa-arrow-up\" aria-hidden=\"true\"></i></button>";
+        "<button type='button' class='save_button' title='Save changes'><i class=\"fa fa-floppy-o\" aria-hidden=\"true\"></i></button>" +
+        "<button type='button' class='cancel_button' title='Cancel changes'><i class=\"fa fa-arrow-up\" aria-hidden=\"true\"></i></button>";
 
     var initialText;
 
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
         var currentEditBlock = todoItem.querySelector(".edit_button, .fa-pencil-square-o");
 
         currentEditBlock.addEventListener("click", function () {
-            initialText = todoItem.querySelector(".list_item_text").innerHTML;
+            initialText = todoItem.querySelector(".list_item_text").textContent;
             todoItem.innerHTML = editListItemHtml;
             todoItem.querySelector(".list_item_input_text").value = initialText;
             todoItem.querySelector(".list_item_input_text").classList.add("changed_text");
@@ -60,13 +60,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
 
                 insertHtmlAfterEditOperation(todoItem, currentEditBlock, currentDeleteBlock);
-                todoItem.querySelector(".list_item_text").innerHTML = currentText;
+                todoItem.querySelector(".list_item_text").textContent = currentText;
             });
 
             var currentResetBlock = todoItem.querySelector(".cancel_button, .fa-arrow-up");
             currentResetBlock.addEventListener("click", function () {
                 insertHtmlAfterEditOperation(todoItem, currentEditBlock, currentDeleteBlock);
-                todoItem.querySelector(".list_item_text").innerHTML = initialText;
+                todoItem.querySelector(".list_item_text").textContent = initialText;
             });
         });
     });
