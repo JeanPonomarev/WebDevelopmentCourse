@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo List</title>
+
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div class="todo_list_container">
+    <div class="header_container">
+        <h1 class="header">Todo List</h1>
+
+        <form>
+            <label>
+                <input type="text" class="todo_input_text" placeholder="Write your note here...">
+            </label>
+
+            <button type="button" class="add_todo_button" title="Add note"><i class="fa fa-check" aria-hidden="true"></i></button>
+        </form>
+    </div>
+
+    <ul id="todo_list">
+        <li>
+            <div class='list_item_text'>Learn JavaScript as hard as possible</div>
+            <button type='button' class='edit_button' title='Edit note'><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+            <button type='button' class='delete_button' title='Delete note'><i class="fa fa-trash"></i></button>
+        </li>
+
+        <li>
+            <div class='list_item_text'>Create a better design for this page</div>
+            <button type='button' class='edit_button' title='Edit note'><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+            <button type='button' class='delete_button' title='Delete note'><i class="fa fa-trash"></i></button>
+        </li>
+
+        <li>
+            <div class='list_item_text'>Add some animation</div>
+            <button type='button' class='edit_button' title='Edit note'><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+            <button type='button' class='delete_button' title='Delete note'><i class="fa fa-trash"></i></button>
+        </li>
+
+        <li>
+            <div class='list_item_text'>Never use jQuery</div>
+            <button type='button' class='edit_button' title='Edit note'><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+            <button type='button' class='delete_button' title='Delete note'><i class="fa fa-trash"></i></button>
+        </li>
+    </ul>
+</div>
+
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
