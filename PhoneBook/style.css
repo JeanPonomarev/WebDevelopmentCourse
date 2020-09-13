@@ -1,5 +1,6 @@
 body {
-    background: linear-gradient(45deg, #49a09d, #5f2c82);
+    background: rgb(0,161,227);
+    background: linear-gradient(90deg, rgba(0,161,227,0.8) 0%, rgba(47,64,250,1) 100%);
 }
 
 .main-container {
@@ -9,7 +10,6 @@ body {
 
 .input-form {
     margin: 20px auto;
-
     width: 500px;
 }
 
@@ -20,11 +20,8 @@ body {
 table {
     margin-left: auto;
     margin-right: auto;
-
     margin-top: 20px;
-
     max-width: 800px;
-
     border-collapse: collapse;
     overflow: hidden;
     box-shadow: 0 0 20px rgba(0,0,0,0.5);
@@ -46,4 +43,11 @@ thead th {
 
 .btn.delete {
     padding: 0 5px;
+}
+
+.invalid-feedback {
+    font-size: 1em;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: #ed0003;
 }
