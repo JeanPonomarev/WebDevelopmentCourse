@@ -19,20 +19,20 @@ $(document).ready(function () {
         todoInputText.val("");
 
         var currentDeleteButton = todoItem.find(".delete_button");
-        currentDeleteButton.on("click", deleteHandler);
+        currentDeleteButton.click(deleteHandler);
 
         var currentEditButton = todoItem.find(".edit_button");
-        currentEditButton.on("click", editHandler);
-    }
+        currentEditButton.click(editHandler);
+    };
 
     var deleteHandler = function (event) {
         event.target.closest("li").remove();
-    }
+    };
 
     var editHandler = function (event) {
         var todoItem = $(event.target.closest("li"));
 
-        var currentEditButton = todoItem.find(".edit_button")
+        var currentEditButton = todoItem.find(".edit_button");
         var currentDeleteButton = todoItem.find(".delete_button");
 
         initialText = todoItem.find(".list_item_text").text();
@@ -41,11 +41,11 @@ $(document).ready(function () {
         todoItem.find(".list_item_input_text").addClass("changed_text");
 
         var currentSaveButton = todoItem.find(".save_button");
-        currentSaveButton.on("click", {arg1: currentEditButton, arg2: currentDeleteButton}, saveHandler)
+        currentSaveButton.click({arg1: currentEditButton, arg2: currentDeleteButton}, saveHandler);
 
         var currentResetButton = todoItem.find(".cancel_button");
-        currentResetButton.on("click", {arg1: currentEditButton, arg2: currentDeleteButton}, resetHandler);
-    }
+        currentResetButton.click({arg1: currentEditButton, arg2: currentDeleteButton}, resetHandler);
+    };
 
     var saveHandler = function (event) {
         var currentEditButton = event.data.arg1;
@@ -65,11 +65,11 @@ $(document).ready(function () {
         todoItem.append(currentEditButton);
         todoItem.append(currentDeleteButton);
 
-        currentEditButton.on("click", editHandler);
-        currentDeleteButton.on("click", deleteHandler);
+        currentEditButton.click(editHandler);
+        currentDeleteButton.click(deleteHandler);
 
         todoItem.find(".list_item_text").text(currentText);
-    }
+    };
 
     var resetHandler = function (event) {
         var currentEditButton = event.data.arg1;
@@ -82,11 +82,11 @@ $(document).ready(function () {
         todoItem.append(currentEditButton);
         todoItem.append(currentDeleteButton);
 
-        currentEditButton.on("click", editHandler);
-        currentDeleteButton.on("click", deleteHandler);
+        currentEditButton.click(editHandler);
+        currentDeleteButton.click(deleteHandler);
 
         todoItem.find(".list_item_text").text(initialText);
-    }
+    };
 
     var listItemHtml = "<div class='list_item_text'></div>" +
         "<button type='button' class='edit_button' title='Edit note'><i class=\"fa fa-pencil-square-o\" aria-hidden=\"true\"></i></button>" +
@@ -99,13 +99,13 @@ $(document).ready(function () {
     var addTodoButton = $(".add_todo_button");
 
     var initialEditButtons = $(".edit_button");
-    initialEditButtons.on("click", editHandler);
+    initialEditButtons.click(editHandler);
 
     var initialDeleteButtons = $(".delete_button");
-    initialDeleteButtons.on("click", deleteHandler);
+    initialDeleteButtons.click(deleteHandler);
 
     var todoInputText = $(".todo_input_text");
     var todoList = $("#todo_list");
 
-    addTodoButton.on("click", addTodoHandler)
+    addTodoButton.click(addTodoHandler);
 });
