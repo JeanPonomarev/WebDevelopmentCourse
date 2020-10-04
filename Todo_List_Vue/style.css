@@ -1,0 +1,18 @@
+body {
+    background: rgb(0,161,227);
+    background: linear-gradient(90deg, rgba(0,161,227,0.7) 0%, rgba(132,142,250,0.7) 100%);
+}
+
+.container {
+    max-width: 450px;
+    margin-top: 50px;
+}
+
+.todo-item-block {
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+
+.edit-text {
+    color: #ed0003;
+}
