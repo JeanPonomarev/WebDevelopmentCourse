@@ -14,7 +14,7 @@ $(document).ready(function () {
             return;
         }
 
-        var newContactTableRow = $("<tr></tr>")
+        var newContactTableRow = $("<tr></tr>");
 
         newContactTableRow.html(contactHtml);
 
@@ -27,7 +27,7 @@ $(document).ready(function () {
 
         tableBody.append(newContactTableRow);
 
-        newContactTableRow.find("button.delete").on("click", deleteContactHandler);
+        newContactTableRow.find("button.delete").click(deleteContactHandler);
 
         nameInputField.val("");
         surnameInputField.val("");
@@ -63,16 +63,16 @@ $(document).ready(function () {
     }
 
     function isEmpty(value) {
-        return !value.replace(/\s/g, '').length;
+        return !value.replace(/\s/g, "").length;
     }
 
     function handleValidationError(inputField, validationFeedbackId, errorMessage) {
         inputField.addClass("is-invalid");
-        inputField.attr("aria-describedby", validationFeedbackId);
+        inputField.prop("aria-describedby", validationFeedbackId);
 
         var validationFeedback = $("<div class='invalid-feedback'></div>");
         validationFeedback.text(errorMessage);
-        validationFeedback.attr("id", validationFeedbackId);
+        validationFeedback.prop("id", validationFeedbackId);
 
         validationFeedback.insertAfter(inputField);
     }
@@ -86,7 +86,7 @@ $(document).ready(function () {
     var deleteContactHandler = function (event) {
         event.target.closest("tr").remove();
         recalculateNumbers();
-    }
+    };
 
     function recalculateNumbers() {
         var tableRows = $("tbody tr");
@@ -104,5 +104,5 @@ $(document).ready(function () {
         "<button class='btn btn-danger delete'><i class='fa fa-times'></i></button>" +
         "</td>";
 
-    addContactButton.on("click", addContactHandler);
+    addContactButton.click(addContactHandler);
 });
