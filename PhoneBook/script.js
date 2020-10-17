@@ -32,7 +32,7 @@ $(document).ready(function () {
         nameInputField.val("");
         surnameInputField.val("");
         phoneInputField.val("");
-    }
+    };
 
     function isFormValid(name, surname, phone) {
         if (isEmpty(name)) {
