@@ -11,7 +11,6 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-
 <div v-cloak id="my-form">
     <todo-list></todo-list>
 </div>
@@ -54,7 +53,7 @@
     <div class="container">
         <h1 class="text-center display-1 header">Todo List</h1>
         <div class="row input-form">
-            <form class="col-12 px-0">
+            <form class="col-12 px-0" onSubmit="return false;">
                 <div class="input-group">
                     <input class="form-control" v-model="newItemText" type="text" placeholder="Write your note here...">
                     <span class="add-button-block">
@@ -66,9 +65,10 @@
             </form>
         </div>
 
-        <todo-item v-bind:item="item"
-                   v-bind:key="item.id"
+        <todo-item :item="item"
+                   :key="item.id"
                    @delete-item="deleteItem"
+                   @cancel-text-change="cancelTextChange"
                    v-for="item in items">
         </todo-item>
     </div>

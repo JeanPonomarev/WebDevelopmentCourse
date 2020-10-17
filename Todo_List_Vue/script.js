@@ -28,10 +28,10 @@ Vue.component("todo-item", {
             this.editMode = false;
         },
         cancelChanges: function () {
-            this.item.text = this.initialText;
+            this.$emit("cancel-text-change", this.item, this.initialText);
             this.initialText = null;
             this.editMode = false;
-        }
+        },
     },
     template: "#todo-item-template"
 });
@@ -50,6 +50,7 @@ Vue.component("todo-list", {
                 alert("Input field is empty");
                 return;
             }
+
             this.items.push({
                 id: this.newId,
                 text: this.newItemText
@@ -62,6 +63,9 @@ Vue.component("todo-list", {
             this.items = this.items.filter(function (e) {
                 return e !== item;
             });
+        },
+        cancelTextChange: function (item, initialText) {
+            item.text = initialText;
         }
     },
     template: "#todo-list-template"
