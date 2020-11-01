@@ -8,6 +8,7 @@ Vue.component("todo-item", {
     data: function () {
         return {
             editMode: false,
+            temporaryText: null,
             initialText: null
         };
     },
@@ -17,21 +18,22 @@ Vue.component("todo-item", {
         },
         editItem: function () {
             this.initialText = this.item.text;
+            this.temporaryText = this.item.text;
             this.editMode = true;
         },
         saveChanges: function () {
-            if (this.item.text.trim().length === 0) {
+            if (this.temporaryText.trim().length === 0) {
                 alert("Input field is empty");
                 return;
             }
 
+            this.$emit("save-text-change", this.item, this.temporaryText);
             this.editMode = false;
         },
         cancelChanges: function () {
             this.$emit("cancel-text-change", this.item, this.initialText);
-            this.initialText = null;
             this.editMode = false;
-        },
+        }
     },
     template: "#todo-item-template"
 });
@@ -63,6 +65,9 @@ Vue.component("todo-list", {
             this.items = this.items.filter(function (e) {
                 return e !== item;
             });
+        },
+        saveTextChange: function (item, newText) {
+            item.text = newText;
         },
         cancelTextChange: function (item, initialText) {
             item.text = initialText;
